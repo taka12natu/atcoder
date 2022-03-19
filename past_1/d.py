@@ -19,18 +19,22 @@ else:
       y = a[i]
       break
   print(y,x[0])
-""" 
-  TLEになってしまう。dupの部分が遅いのかも
 
+
+""" 
+解説参照
+・各要素を０にした配列を用意し、数字に該当するインデックス（+1する）に個数をカウントしていく
+個数が０の場合は書き換えられた数字x、個数が２の場合は重複している数字yと判定
+n回の繰り返し処理で判定できる
+"""
 n = int(input())
 a = [int(input()) for i in range(n)]
-compare = [i for i in range(1,n+1)]
-dup = [x for x in set(a) if a.count(x) > 1]
-if len(dup) == 0:
-  print('Correct')
+arr = [0 for x in range(n)]
+for i,num in enumerate(a):
+  arr[num-1] += 1
+if arr.count(0):
+  y = arr.index(2)+1
+  x = arr.index(0)+1
+  print(y, x)
 else:
-  y = dup[0]
-  x = list(set(compare) - set(a))[0]
-  print(y,x)
-
-"""
+  print('Correct')
