@@ -25,3 +25,6 @@ arr.count("a")
 
 """ リストから重複した値を抽出 """
 dup = [x for x in set(arr) if arr.count(x) > 1]
+
+""" for文でリストのインデックス番号を使用 """
+for index, num in enumerate(arr):
