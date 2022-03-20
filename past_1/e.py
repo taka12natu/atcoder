@@ -16,10 +16,10 @@ for i in range(q):
     a_follows = []
     for index,num in enumerate(user[a]): 
       if num == "Y":
-        a_follows.append(index)
-    for a_follow in a_follows:
+        a_follows.append(index) #現時点でのaがフォローしているuserを書き出す※下のforをネストするとaがフォローしているユーザーが増えていく
+    for a_follow in a_follows: 
       for index,num in enumerate(user[a_follow]): 
-        if num == "Y" and index != a:
+        if num == "Y" and index != a: # 自信をフォローしない
           user[a][index] = "Y"
 for row in user:
   print(*row, sep="")
