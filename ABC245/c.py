@@ -1,19 +1,21 @@
 n,k = map(int, input().split())
 a = list(map(int, input().split()))
 b = list(map(int, input().split()))
-cnt = 0
-arr = []
-for i in range(n-1):
-  if abs(a[i] - a[i+1]) <= k or abs(a[i] - b[i+1]) <= k :
-    arr.append(a[i])
-  elif abs(b[i] - b[i+1]) <= k or abs(b[i] - a[i+1]) <= k:
-    arr.append(b[i])
-if len(arr) != n-1:
-  print("No")
-else:
-  for i in range(len(arr)-1):
-    if abs(arr[i]-arr[i+1]) > k:
-      print("No")
-      exit()
+a_jud = [False]*n
+b_jud = [False]*n
+a_jud[0]=b_jud[0]=True
+for i in range(1,n):
+  if a_jud[i-1]:
+    if abs(a[i-1] - a[i]) <= k:
+      a_jud[i] = True
+    if abs(a[i-1] - b[i]) <= k:
+      b_jud[i] = True
+  if b_jud[i-1]:
+    if abs(b[i-1] - a[i]) <= k:
+      a_jud[i] = True
+    if abs(b[i-1] - b[i]) <= k:
+      b_jud[i] = True
+if a_jud[n-1] or b_jud[n-1]:
   print('Yes')
-  
+else:
+  print("No")
