@@ -36,4 +36,9 @@ print("".join(arr))
 """ 出力: abc """
 
 
-
+""" 数字の配列を横並びで表記したい場合 """
+num = [1,2,3,4]
+L=[str(a) for a in num]
+L=" ".join(L)
+print(L)
+""" 出力: 1 2 3 4 """
